@@ -1,7 +1,6 @@
 package com.stackroute.socketone;
 
 import com.ibm.common.activitystreams.Activity;
-import com.stackroute.socketone.controller.Data;
 import com.stackroute.socketone.controller.Tweets;
 import net.minidev.json.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,11 +34,12 @@ public class SocketOneApplication {
 	public static void main(String[] args) throws IOException, ParseException, InterruptedException {
 
 		SpringApplication.run(SocketOneApplication.class, args);
+		Scanner scanner=new Scanner(System.in);
+		System.out.println("Enter your Port: ");
+		int port=scanner.nextInt();
 		Tweets tweets=new Tweets();
 		System.out.println(tweets.getTweets());
-
-		Data data=new Data();
-		data.met();
+		System.out.println(tweets.met(port));
 
     }
 
